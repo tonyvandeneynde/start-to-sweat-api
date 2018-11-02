@@ -459,6 +459,6 @@ getExercisePromise = (whereClause) => {
 
 
 
-app.listen(8888, function () {
-    console.log('recipe server listening on port 8888!');
+app.listen(process.env.PORT || 8888, function () {
+    console.log(`recipe server listening on port ${process.env.PORT || '8888'}!`);
 });
