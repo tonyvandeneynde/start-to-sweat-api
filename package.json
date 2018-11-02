@@ -4,7 +4,8 @@
   "description": "start-to-sweat-server",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon index.js"
+    "test": "nodemon index.js",
+    "start": "node inex.js"
   },
   "author": "Tony Van den Eynde",
   "license": "ISC",
