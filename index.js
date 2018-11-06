@@ -10,6 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 
+console.log(process.env.DATABASE_URL);
+
 let db = require('knex')({
     client: 'pg',
     version: '10.4',
