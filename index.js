@@ -10,8 +10,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 
+let db;
+
 if (process.env.DATABASE_URL){
-    let db = require('knex')({
+    db = require('knex')({
         client: 'pg',
         version: '10.5',
         connection: {
@@ -23,7 +25,7 @@ if (process.env.DATABASE_URL){
     });
 }
 else{
-    let db = require('knex')({
+    db = require('knex')({
         client: 'pg',
         version: '10.4',
         connection: {
