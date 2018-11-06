@@ -10,18 +10,30 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 
-console.log(process.env.DATABASE_URL);
-
-let db = require('knex')({
-    client: 'pg',
-    version: '10.4',
-    connection: {
-        host: '127.0.0.1',
-        user: 'postgres',
-        password: 'T@nzot666',
-        database: 'start-to-sweat'
-    }
-});
+if (process.env.DATABASE_URL){
+    let db = require('knex')({
+        client: 'pg',
+        version: '10.5',
+        connection: {
+            connectionString: process.env.DATABASE_URL,
+            user: 'postgres',
+            password: 'T@nzot666',
+            database: 'start-to-sweat'
+        }
+    });
+}
+else{
+    let db = require('knex')({
+        client: 'pg',
+        version: '10.4',
+        connection: {
+            host: '127.0.0.1',
+            user: 'postgres',
+            password: 'T@nzot666',
+            database: 'start-to-sweat'
+        }
+    });
+}
 
 db.on('query', function (queryData) {
     //console.log(queryData);
