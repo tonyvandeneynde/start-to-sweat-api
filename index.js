@@ -19,7 +19,7 @@ if (process.env.DATABASE_URL){
         connection: {
             connectionString: process.env.DATABASE_URL,
             user: 'postgres',
-            password: 'T@nzot666',
+            password: process.env.REACT_APP_DATABASE_PASSWORD,
             database: 'start-to-sweat'
         }
     });
